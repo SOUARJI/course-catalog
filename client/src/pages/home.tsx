@@ -29,7 +29,7 @@ import { CourseCard } from '@/components/course-card';
 import { useTheme } from '@/components/theme-provider';
 import type { Course } from '@shared/schema';
 
-const categories = ["All", "API Development", "DevOps", "Best Practices"];
+const categories = ["All", "C++ Programming", "System Architecture", "System Configuration", ".NET Development", "Code Quality", "Debugging", "Development Tools", "Team Onboarding", "Cloud Infrastructure"];
 
 export default function Home() {
   const { darkMode, toggleDarkMode } = useTheme();
