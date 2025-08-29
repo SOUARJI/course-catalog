@@ -9,6 +9,8 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/course-catalog" component={Home} />
+      <Route path="/course-catalog/" component={Home} />
       <Route component={NotFound} />
     </Switch>
   );
