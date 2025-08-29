@@ -24,10 +24,10 @@ import {
   DarkMode,
   KeyboardArrowUp,
 } from '@mui/icons-material';
-import { useQuery } from '@tanstack/react-query';
 import { CourseCard } from '@/components/course-card';
 import { useTheme } from '@/components/theme-provider';
 import type { Course } from '@shared/schema';
+import coursesData from '@/data/courses.json';
 
 const categories = ["All", "C++ Programming", "System Architecture", "System Configuration", ".NET Development", "Code Quality", "Debugging", "Development Tools", "Team Onboarding", "Cloud Infrastructure"];
 
@@ -36,10 +36,10 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  // Fetch courses data
-  const { data: courses = [], isLoading, error } = useQuery<Course[]>({
-    queryKey: ['/api/courses'],
-  });
+  // Use static course data instead of API
+  const courses = coursesData as Course[];
+  const isLoading = false;
+  const error = null;
 
   // Filter and search courses
   const filteredCourses = useMemo(() => {
