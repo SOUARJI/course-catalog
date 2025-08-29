@@ -1,0 +1,156 @@
+import { type User, type InsertUser, type Course, type InsertCourse } from "@shared/schema";
+import { randomUUID } from "crypto";
+
+export interface IStorage {
+  getUser(id: string): Promise<User | undefined>;
+  getUserByUsername(username: string): Promise<User | undefined>;
+  createUser(user: InsertUser): Promise<User>;
+  
+  getCourses(): Promise<Course[]>;
+  getCourse(id: string): Promise<Course | undefined>;
+  createCourse(course: InsertCourse): Promise<Course>;
+}
+
+export class MemStorage implements IStorage {
+  private users: Map<string, User>;
+  private courses: Map<string, Course>;
+
+  constructor() {
+    this.users = new Map();
+    this.courses = new Map();
+    
+    // Initialize with sample course data
+    this.initializeSampleCourses();
+  }
+
+  private initializeSampleCourses() {
+    const sampleCourses: Course[] = [
+      {
+        id: "1",
+        title: "RESTful API Development with Node.js",
+        description: "Learn how to build scalable REST APIs using Node.js and Express. This comprehensive course covers authentication, database integration, and best practices for API design.",
+        thumbnailUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=180",
+        videoUrl: "https://amadeusworkplace.sharepoint.com/sites/YourTeamSite/Documents/KnowledgeSharing/api-development-nodejs.mp4",
+        category: "API Development",
+        duration: "45 min",
+        tags: ["Node.js", "REST", "API", "Express"],
+        date: "2024-01-15"
+      },
+      {
+        id: "2",
+        title: "Docker Containerization Fundamentals",
+        description: "Master Docker containers for development and deployment. Learn container orchestration, Docker Compose, and integration with CI/CD pipelines.",
+        thumbnailUrl: "https://images.unsplash.com/photo-1605745341112-85968b19335b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=180",
+        videoUrl: "https://amadeusworkplace.sharepoint.com/sites/YourTeamSite/Documents/KnowledgeSharing/docker-fundamentals.mp4",
+        category: "DevOps",
+        duration: "38 min",
+        tags: ["Docker", "Containers", "DevOps", "Deployment"],
+        date: "2024-01-12"
+      },
+      {
+        id: "3",
+        title: "Clean Code Principles and Practices",
+        description: "Write maintainable, readable code following industry best practices. Covers SOLID principles, code refactoring, and effective commenting strategies.",
+        thumbnailUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=180",
+        videoUrl: "https://amadeusworkplace.sharepoint.com/sites/YourTeamSite/Documents/KnowledgeSharing/clean-code-practices.mp4",
+        category: "Best Practices",
+        duration: "52 min",
+        tags: ["Clean Code", "SOLID", "Refactoring", "Best Practices"],
+        date: "2024-01-10"
+      },
+      {
+        id: "4",
+        title: "GraphQL API Implementation",
+        description: "Build modern APIs with GraphQL. Learn schema design, resolvers, mutations, and how to integrate GraphQL with existing REST endpoints.",
+        thumbnailUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=180",
+        videoUrl: "https://amadeusworkplace.sharepoint.com/sites/YourTeamSite/Documents/KnowledgeSharing/graphql-implementation.mp4",
+        category: "API Development",
+        duration: "41 min",
+        tags: ["GraphQL", "API", "Schema", "Resolvers"],
+        date: "2024-01-08"
+      },
+      {
+        id: "5",
+        title: "Kubernetes Deployment Strategies",
+        description: "Deploy applications with Kubernetes. Learn about pods, services, deployments, and advanced deployment strategies like blue-green and canary releases.",
+        thumbnailUrl: "https://images.unsplash.com/photo-1667372459434-6dbea4d65fb8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=180",
+        videoUrl: "https://amadeusworkplace.sharepoint.com/sites/YourTeamSite/Documents/KnowledgeSharing/kubernetes-deployment.mp4",
+        category: "DevOps",
+        duration: "55 min",
+        tags: ["Kubernetes", "k8s", "Deployment", "Container Orchestration"],
+        date: "2024-01-05"
+      },
+      {
+        id: "6",
+        title: "Test-Driven Development (TDD)",
+        description: "Implement TDD methodology in your development workflow. Learn unit testing, integration testing, and how to write testable code.",
+        thumbnailUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=180",
+        videoUrl: "https://amadeusworkplace.sharepoint.com/sites/YourTeamSite/Documents/KnowledgeSharing/tdd-practices.mp4",
+        category: "Best Practices",
+        duration: "43 min",
+        tags: ["TDD", "Testing", "Unit Tests", "Quality Assurance"],
+        date: "2024-01-03"
+      },
+      {
+        id: "7",
+        title: "Microservices Architecture Design",
+        description: "Design and implement microservices architecture. Learn service decomposition, inter-service communication, and distributed system challenges.",
+        thumbnailUrl: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=180",
+        videoUrl: "https://amadeusworkplace.sharepoint.com/sites/YourTeamSite/Documents/KnowledgeSharing/microservices-architecture.mp4",
+        category: "API Development",
+        duration: "48 min",
+        tags: ["Microservices", "Architecture", "Distributed Systems", "API Design"],
+        date: "2024-01-01"
+      },
+      {
+        id: "8",
+        title: "CI/CD Pipeline Automation",
+        description: "Automate your development workflow with CI/CD pipelines. Learn Jenkins, GitHub Actions, and automated testing deployment strategies.",
+        thumbnailUrl: "https://images.unsplash.com/photo-1618477388954-7852f32655ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=180",
+        videoUrl: "https://amadeusworkplace.sharepoint.com/sites/YourTeamSite/Documents/KnowledgeSharing/cicd-automation.mp4",
+        category: "DevOps",
+        duration: "37 min",
+        tags: ["CI/CD", "Jenkins", "GitHub Actions", "Automation"],
+        date: "2023-12-28"
+      }
+    ];
+
+    sampleCourses.forEach(course => {
+      this.courses.set(course.id, course);
+    });
+  }
+
+  async getUser(id: string): Promise<User | undefined> {
+    return this.users.get(id);
+  }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    return Array.from(this.users.values()).find(
+      (user) => user.username === username,
+    );
+  }
+
+  async createUser(insertUser: InsertUser): Promise<User> {
+    const id = randomUUID();
+    const user: User = { ...insertUser, id };
+    this.users.set(id, user);
+    return user;
+  }
+
+  async getCourses(): Promise<Course[]> {
+    return Array.from(this.courses.values());
+  }
+
+  async getCourse(id: string): Promise<Course | undefined> {
+    return this.courses.get(id);
+  }
+
+  async createCourse(insertCourse: InsertCourse): Promise<Course> {
+    const id = randomUUID();
+    const course: Course = { ...insertCourse, id };
+    this.courses.set(id, course);
+    return course;
+  }
+}
+
+export const storage = new MemStorage();
