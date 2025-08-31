@@ -20,16 +20,16 @@ import {
 } from '@mui/material';
 import {
   Search,
+  KeyboardArrowUp,
   LightMode,
   DarkMode,
-  KeyboardArrowUp,
 } from '@mui/icons-material';
 import { CourseCard } from '@/components/course-card';
 import { useTheme } from '@/components/theme-provider';
 import type { Course } from '@shared/schema';
 import coursesData from '@/data/courses.json';
 
-const categories = ["All", "C++ Programming", "System Architecture", "System Configuration", ".NET Development", "Code Quality", "Debugging", "Development Tools", "Team Onboarding", "Cloud Infrastructure"];
+const categories = ["All", "Commercial Code", "Cloud", "Best Practices", "C++ Programming", "Development Tools", "Team Onboarding"];
 
 export default function Home() {
   const { darkMode, toggleDarkMode } = useTheme();
@@ -86,7 +86,7 @@ export default function Home() {
             sx={{ flexGrow: 1 }}
             data-testid="text-app-title"
           >
-            Team Video Course Catalog
+            DFA Team Knowledge Sharing Sessions Catalog
           </Typography>
           
           {/* Navigation Links */}
@@ -95,7 +95,7 @@ export default function Home() {
             sx={{ mr: 1 }}
             data-testid="button-nav-all-courses"
           >
-            All Courses
+            ALL SESSIONS
           </Button>
           <Button 
             color="inherit" 
@@ -143,7 +143,7 @@ export default function Home() {
             component="p"
             data-testid="text-hero-subtitle"
           >
-            Discover our latest video courses on API Development, DevOps, and Best Practices
+            Discover our latest sessions on Commercial Code developments, Cloud, and Best Practices
           </Typography>
         </Container>
       </Box>
