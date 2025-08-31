@@ -29,15 +29,35 @@ import { useTheme } from '@/components/theme-provider';
 import type { Course } from '@shared/schema';
 import coursesData from '@/data/courses.json';
 
-const categories = ["All", "Commercial Code", "Cloud", "Best Practices", "C++ Programming", "Development Tools", "Team Onboarding"];
-
 export default function Home() {
   const { darkMode, toggleDarkMode } = useTheme();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedTopic, setSelectedTopic] = useState("All");
 
   // Use static course data instead of API
   const courses = coursesData as Course[];
+  
+  // Extract unique categories from actual data and sort them
+  const categories = useMemo(() => {
+    const uniqueCategories = Array.from(new Set(courses.map(course => course.category)))
+      .sort();
+    return ["All", ...uniqueCategories];
+  }, [courses]);
+
+  // Popular topics based on common tags
+  const topics = [
+    "All",
+    "C++",
+    "Git & Version Control", 
+    "Build Systems",
+    "Testing",
+    "Performance",
+    "Cloud",
+    "EDI",
+    "Debugging",
+    "Code Guidelines"
+  ];
   const isLoading = false;
   const error = null;
 
@@ -52,13 +72,60 @@ export default function Home() {
       
       const matchesCategory = selectedCategory === "All" || course.category === selectedCategory;
       
-      return matchesSearch && matchesCategory;
+      // Topic-based filtering using tags and content
+      const matchesTopic = selectedTopic === "All" || (() => {
+        const title = course.title.toLowerCase();
+        const description = course.description.toLowerCase();
+        const tags = course.tags.map(tag => tag.toLowerCase());
+        
+        switch (selectedTopic) {
+          case "C++":
+            return tags.some(tag => tag.includes("c++")) || 
+                   title.includes("c++") || description.includes("c++");
+          case "Git & Version Control":
+            return tags.some(tag => tag.includes("git") || tag.includes("version") || tag.includes("bitbucket")) ||
+                   title.includes("git") || description.includes("git");
+          case "Build Systems":
+            return tags.some(tag => tag.includes("build") || tag.includes("cmake") || tag.includes("compilation")) ||
+                   title.includes("build") || description.includes("build");
+          case "Testing":
+            return tags.some(tag => tag.includes("test") || tag.includes("pytest") || tag.includes("tts") || tag.includes("unittest")) ||
+                   title.includes("test") || description.includes("test");
+          case "Performance":
+            return tags.some(tag => tag.includes("performance") || tag.includes("optimization") || tag.includes("pgo")) ||
+                   title.includes("performance") || description.includes("optimization");
+          case "Cloud":
+            return tags.some(tag => tag.includes("cloud")) ||
+                   title.includes("cloud") || description.includes("cloud");
+          case "EDI":
+            return tags.some(tag => tag.includes("edi")) ||
+                   title.includes("edi") || description.includes("edi");
+          case "Debugging":
+            return tags.some(tag => tag.includes("debug") || tag.includes("gdb") || tag.includes("trace")) ||
+                   title.includes("debug") || description.includes("debug");
+          case "Code Guidelines":
+            return tags.some(tag => tag.includes("guideline") || tag.includes("convention") || tag.includes("style")) ||
+                   title.includes("guideline") || description.includes("guideline");
+          default:
+            return true;
+        }
+      })();
+      
+      return matchesSearch && matchesCategory && matchesTopic;
     }).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // Sort by date (newest first)
-  }, [courses, searchTerm, selectedCategory]);
+  }, [courses, searchTerm, selectedCategory, selectedTopic]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const clearAllFilters = () => {
+    setSearchTerm("");
+    setSelectedCategory("All");
+    setSelectedTopic("All");
+  };
+
+  const hasActiveFilters = searchTerm || selectedCategory !== "All" || selectedTopic !== "All";
 
   if (error) {
     return (
@@ -143,7 +210,7 @@ export default function Home() {
             component="p"
             data-testid="text-hero-subtitle"
           >
-            Discover our latest sessions on Commercial Code developments, Cloud, and Best Practices
+            Discover our latest technical sessions covering C++, Development Tools, Testing, Cloud Computing, and more
           </Typography>
         </Container>
       </Box>
@@ -165,7 +232,7 @@ export default function Home() {
         }}
       >
         <Container maxWidth="lg" sx={{ py: 3 }}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+          <div className="space-y-4">
             {/* Search Bar */}
             <div>
               <TextField
@@ -188,9 +255,9 @@ export default function Home() {
             
             {/* Category Filter */}
             <div>
-              <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', alignItems: 'center' }}>
-                <Typography variant="body2" sx={{ mr: 1 }}>
-                  Filter by:
+              <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', alignItems: 'center', mb: 2 }}>
+                <Typography variant="body2" sx={{ mr: 1, fontWeight: 'bold' }}>
+                  Category:
                 </Typography>
                 {categories.map((category) => (
                   <Chip
@@ -206,6 +273,42 @@ export default function Home() {
                 ))}
               </Box>
             </div>
+
+            {/* Topic Filter */}
+            <div>
+              <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', alignItems: 'center' }}>
+                <Typography variant="body2" sx={{ mr: 1, fontWeight: 'bold' }}>
+                  Topic:
+                </Typography>
+                {topics.map((topic) => (
+                  <Chip
+                    key={topic}
+                    label={topic}
+                    clickable
+                    color={selectedTopic === topic ? 'secondary' : 'default'}
+                    variant={selectedTopic === topic ? 'filled' : 'outlined'}
+                    onClick={() => setSelectedTopic(topic)}
+                    aria-label={`Filter by ${topic}`}
+                    data-testid={`chip-topic-${topic.toLowerCase().replace(/\s+/g, '-')}`}
+                  />
+                ))}
+              </Box>
+            </div>
+
+            {/* Clear Filters Button */}
+            {hasActiveFilters && (
+              <div>
+                <Button
+                  variant="outlined"
+                  color="secondary"
+                  onClick={clearAllFilters}
+                  size="small"
+                  data-testid="button-clear-filters"
+                >
+                  Clear All Filters ({filteredCourses.length} results)
+                </Button>
+              </div>
+            )}
           </div>
         </Container>
       </Paper>
