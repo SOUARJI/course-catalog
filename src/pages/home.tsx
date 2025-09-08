@@ -26,7 +26,7 @@ import {
 } from '@mui/icons-material';
 import { CourseCard } from '@/components/course-card';
 import { useTheme } from '@/components/theme-provider';
-import type { Course } from '@shared/schema';
+import type { Course } from '@/types/course';
 import coursesData from '@/data/courses.json';
 
 export default function Home() {

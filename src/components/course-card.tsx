@@ -10,7 +10,7 @@ import {
   Tooltip,
 } from '@mui/material';
 import { PlayArrow, AccessTime, CalendarToday } from '@mui/icons-material';
-import type { Course } from '@shared/schema';
+import type { Course } from '@/types/course';
 
 interface CourseCardProps {
   course: Course;
