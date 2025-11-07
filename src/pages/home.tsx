@@ -48,13 +48,13 @@ export default function Home() {
   // Popular topics based on common tags
   const topics = [
     "All",
+    "Cloud Refresher",
     "C++",
     "Git & Version Control", 
     "Build Systems",
     "Testing",
     "Performance",
     "Cloud",
-    "Cloud Refresher",
     "EDI",
     "Debugging",
     "Code Guidelines"
@@ -99,8 +99,7 @@ export default function Home() {
             return tags.some(tag => tag.includes("cloud")) ||
                    title.includes("cloud") || description.includes("cloud");
           case "Cloud Refresher":
-            return tags.some(tag => tag.includes("refresher")) ||
-                   title.toLowerCase().includes("refresher") || description.toLowerCase().includes("refresher");
+            return title.toLowerCase().includes("cloud refresher");
           case "EDI":
             return tags.some(tag => tag.includes("edi")) ||
                    title.includes("edi") || description.includes("edi");
