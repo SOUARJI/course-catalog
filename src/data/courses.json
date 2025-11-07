@@ -526,5 +526,137 @@
     "duration": "Unknown",
     "tags": ["Cloud", "boot PS", "FinOps", "infrastructure"],
     "date": "2025-08-26"
+  },
+  {
+    "id": "49",
+    "title": "Cloud Issues and UI Development",
+    "description": "Failure to start troubleshooting, Cloud Couchbase issues, Ahmed's UI development, AI usage guidelines, and ssp::map optimization opportunities.",
+    "thumbnailUrl": "./images/course-placeholder.jpg",
+    "videoUrl": "",
+    "category": "Cloud Computing",
+    "duration": "Unknown",
+    "tags": ["Cloud", "Couchbase", "UI", "AI", "ssp::map", "optimization"],
+    "date": "2025-09-02"
+  },
+  {
+    "id": "50",
+    "title": "FqParam and GitHub Introduction",
+    "description": "FqParam deletion issues with TEX Dictionary and introduction to Github.com platform.",
+    "thumbnailUrl": "./images/course-placeholder.jpg",
+    "videoUrl": "https://amadeusworkplace.sharepoint.com/:v:/r/sites/DFA591/Shared%20Documents/Tech%20Forum%20-%20Tech%20Design/Recording/%5BDFA%5D%20Knowledge%20Sharing%20OR%20Technical%20forum-20250909_160234-Meeting%20Recording.mp4?csf=1&web=1&e=edG9fY",
+    "category": "Development Tools",
+    "duration": "Unknown",
+    "tags": ["FqParam", "TEX Dictionary", "GitHub", "Github.com"],
+    "date": "2025-09-09"
+  },
+  {
+    "id": "51",
+    "title": "Git Security and Configuration",
+    "description": "Git vulnerability CVE-2025-48384, new MFA TOTP activation for 1A users, Teams reply button changes, git diff moved lines detection, and yaml simple guidelines.",
+    "thumbnailUrl": "./images/course-placeholder.jpg",
+    "videoUrl": "https://amadeusworkplace.sharepoint.com/:v:/r/sites/DFA591/Shared%20Documents/Tech%20Forum%20-%20Tech%20Design/Recording/%5BDFA%5D%20Knowledge%20Sharing%20OR%20Technical%20forum-20250916_160818-Meeting%20Recording.mp4?csf=1&web=1&e=NG9QbF",
+    "category": "Development Tools",
+    "duration": "Unknown",
+    "tags": ["Git", "CVE-2025-48384", "MFA", "TOTP", "Teams", "git diff", "yaml"],
+    "date": "2025-09-16"
+  },
+  {
+    "id": "52",
+    "title": "Low Fare Alert and Data Override",
+    "description": "Low Fare Alert and Low Ticket Alert presentation by Michael OLIVIER, and Record 3 data override in Cat31/Cat33.",
+    "thumbnailUrl": "./images/course-placeholder.jpg",
+    "videoUrl": "https://amadeusworkplace.sharepoint.com/:v:/r/sites/DFA591/Shared%20Documents/Tech%20Forum%20-%20Tech%20Design/Recording/%5BDFA%5D%20Knowledge%20Sharing%20OR%20Technical%20forum-20250923_160344-Meeting%20Recording.mp4?csf=1&web=1&e=lzUCHb&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D",
+    "category": "Business Logic",
+    "duration": "Unknown",
+    "tags": ["Low Fare Alert", "Low Ticket Alert", "Cat31", "Cat33", "data override"],
+    "date": "2025-09-23"
+  },
+  {
+    "id": "53",
+    "title": "GateKeeper and Configuration Management",
+    "description": "GateKeeper and PRs workflow, github credential and SSO setup, TOTP activation process, Wifi Linux no more ama-dev, configuration with Good LazyInstance versus Bad LazyInstance, and Const() in google mock.",
+    "thumbnailUrl": "./images/course-placeholder.jpg",
+    "videoUrl": "https://amadeusworkplace.sharepoint.com/:v:/r/sites/DFA591/Shared%20Documents/Tech%20Forum%20-%20Tech%20Design/Recording/%5BDFA%5D%20Knowledge%20Sharing%20OR%20Technical%20forum-20250930_160208-Meeting%20Recording.mp4?csf=1&web=1&e=LKt99i&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D",
+    "category": "Development Tools",
+    "duration": "Unknown",
+    "tags": ["GateKeeper", "PR", "github", "SSO", "TOTP", "Wifi", "LazyInstance", "gmock"],
+    "date": "2025-09-30"
+  },
+  {
+    "id": "54",
+    "title": "Memory Management and Testing",
+    "description": "Malloc in CC or UT as pure evil, .fqParams.py and DefaultActivationInTest usage.",
+    "thumbnailUrl": "./images/course-placeholder.jpg",
+    "videoUrl": "https://amadeusworkplace.sharepoint.com/:v:/r/sites/DFA591/Shared%20Documents/Tech%20Forum%20-%20Tech%20Design/Recording/%5BDFA%5D%20Knowledge%20Sharing%20OR%20Technical%20forum-20251007_160505-Meeting%20Recording.mp4?csf=1&web=1&e=4nnEYT&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D",
+    "category": "C++ Programming",
+    "duration": "Unknown",
+    "tags": ["malloc", "memory management", "fqParams", "DefaultActivationInTest"],
+    "date": "2025-10-07"
+  },
+  {
+    "id": "55",
+    "title": "Cloud Infrastructure and Exception Handling",
+    "description": "Miss calls and Couchbase issues, feedback loop discussion, CheckMyTR V2, Cloud MKT Release on PaaS, AlfClient in the Cloud with splunk demo, and try/catch and exceptions in C++.",
+    "thumbnailUrl": "./images/course-placeholder.jpg",
+    "videoUrl": "https://amadeusworkplace.sharepoint.com/:v:/r/sites/DFA591/Shared%20Documents/Tech%20Forum%20-%20Tech%20Design/Recording/%5BDFA%5D%20Knowledge%20Sharing%20OR%20Technical%20forum-20251014_161114-Meeting%20Recording.mp4?csf=1&web=1&e=T2dIXs&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D",
+    "category": "Cloud Computing",
+    "duration": "Unknown",
+    "tags": ["Couchbase", "feedback loop", "CheckMyTR", "PaaS", "AlfClient", "splunk", "exceptions", "C++"],
+    "date": "2025-10-14"
+  },
+  {
+    "id": "56",
+    "title": "C++ Exception Handling Best Practices",
+    "description": "C++ Exceptions and error handling in the codebase, and RPWREQ error handling patterns.",
+    "thumbnailUrl": "./images/course-placeholder.jpg",
+    "videoUrl": "https://amadeusworkplace.sharepoint.com/:v:/r/sites/DFA591/Shared%20Documents/Tech%20Forum%20-%20Tech%20Design/Recording/%5BDFA%5D%20Knowledge%20Sharing%20OR%20Technical%20forum-20251021_160733-Meeting%20Recording.mp4?csf=1&web=1&e=E77sDB&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D",
+    "category": "C++ Programming",
+    "duration": "Unknown",
+    "tags": ["C++", "exceptions", "error handling", "RPWREQ"],
+    "date": "2025-10-21"
+  },
+  {
+    "id": "57",
+    "title": "Automated Configuration and Cloud Pain Points",
+    "description": "Launch Announcement of Automated Configuration Update Tool with live demo, Cloud pain points discussion, and how to load code from GK compilation in the Cloud.",
+    "thumbnailUrl": "./images/course-placeholder.jpg",
+    "videoUrl": "https://amadeusworkplace.sharepoint.com/:v:/r/sites/DFA591/Shared%20Documents/Tech%20Forum%20-%20Tech%20Design/Recording/%5BDFA%5D%20Knowledge%20Sharing%20OR%20Technical%20forum-20251028_160723-Meeting%20Recording.mp4?csf=1&web=1&e=Dyycnl&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D",
+    "category": "Cloud Computing",
+    "duration": "Unknown",
+    "tags": ["automation", "configuration", "Cloud", "pain points", "GK", "compilation"],
+    "date": "2025-10-28"
+  },
+  {
+    "id": "58",
+    "title": "Cloud Analysis and Documentation",
+    "description": "Cloud discrepancy between Hermes and EDIReplay analysis, and Copilot Agent instructions for doxygen conversion example.",
+    "thumbnailUrl": "./images/course-placeholder.jpg",
+    "videoUrl": "https://amadeusworkplace.sharepoint.com/:v:/r/sites/DFA591/Shared%20Documents/Tech%20Forum%20-%20Tech%20Design/Recording/%5BDFA%5D%20Knowledge%20Sharing%20OR%20Technical%20forum-20251104_160250-Meeting%20Recording.mp4?csf=1&web=1&e=DmvuSA&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D",
+    "category": "Cloud Computing",
+    "duration": "Unknown",
+    "tags": ["Cloud", "Hermes", "EDIReplay", "discrepancy", "Copilot", "doxygen"],
+    "date": "2025-11-04"
+  },
+  {
+    "id": "59",
+    "title": "Cloud Refresher - Part 1: Introduction and Core Concepts",
+    "description": "Comprehensive cloud refresher session covering fundamental cloud concepts including regions, landing zones, PaaS, namespaces, pods, and containers. Introduction to cloud architecture, migration from traditional servers (NP/ARP) to cloud infrastructure, understanding the cloud hierarchy, and Edix support workflow. Covers the 'Keep Calm and Don't Panic' approach to cloud adoption and troubleshooting. Discussion of FQ satellite configuration and SI design considerations.",
+    "thumbnailUrl": "./images/course-placeholder.jpg",
+    "videoUrl": "https://amadeusworkplace-my.sharepoint.com/personal/davide_reale_amadeus_com/_layouts/15/stream.aspx?id=%2Fpersonal%2Fdavide_reale_amadeus_com%2FDocuments%2FRecordings%2F%5BCLOUD%5D+Refresher+session-20250901_140500-Meeting+Recording.mp4&referrer=StreamWebApp.Web&referrerScenario=AddressBarCopied.view.35c5bb81-9636-477d-bcd3-2c35fc9e3c02&startedResponseCatch=true",
+    "category": "Cloud Computing",
+    "duration": "Unknown",
+    "tags": ["Cloud", "refresher", "PaaS", "namespace", "pods", "containers", "regions", "landing zones", "Edix support", "cloud migration", "architecture", "FQ satellite", "SI"],
+    "date": "2025-09-01"
+  },
+  {
+    "id": "60",
+    "title": "Cloud Refresher - Part 2: Logs, Monitoring and Production Practices",
+    "description": "Second part of cloud refresher covering Applog usage in cloud environments, log analysis and system identification, Splunk integration for log indexing, understanding PaaS and namespace information in logs, production environment naming conventions, and cloud readiness assessment. Emphasis on using Edix support for issue tracking and improving cloud tooling. Practical demonstrations of ALF log analysis and identifying cloud deployment details.",
+    "thumbnailUrl": "./images/course-placeholder.jpg",
+    "videoUrl": "https://amadeusworkplace-my.sharepoint.com/personal/davide_reale_amadeus_com/_layouts/15/stream.aspx?id=%2Fpersonal%2Fdavide%5Freale%5Famadeus%5Fcom%2FDocuments%2FRecordings%2F%5BCLOUD%5D%20Refresher%20session%2D20250901%5F154634%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E15d67873%2Dd8b8%2D478d%2Dacb3%2Df0bad25c5484",
+    "category": "Cloud Computing",
+    "duration": "Unknown",
+    "tags": ["Cloud", "refresher", "Applog", "logs", "monitoring", "Splunk", "PaaS", "namespace", "production", "ALF", "Edix support", "cloud readiness"],
+    "date": "2025-09-01"
   }
 ]
