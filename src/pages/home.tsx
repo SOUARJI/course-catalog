@@ -164,8 +164,11 @@ export default function Home() {
             color="inherit" 
             sx={{ mr: 1 }}
             data-testid="button-nav-all-courses"
+            href="https://amadeus.atlassian.net/wiki/spaces/ELO/pages/2340205144/How+to+actually+do+Cloud+-+WIP"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            ALL SESSIONS
+            How to Cloud
           </Button>
           <Button 
             color="inherit" 
