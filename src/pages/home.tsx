@@ -172,6 +172,16 @@ export default function Home() {
           </Button>
           <Button 
             color="inherit" 
+            sx={{ mr: 1 }}
+            data-testid="button-nav-finops"
+            href="https://app.powerbi.com/groups/me/apps/d2348589-6153-49d9-a3e7-92e420d28a4b/reports/0463253d-13ec-462f-bdfb-4fbcbb7396af/161efb21e23c84da0c2c?experience=power-bi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            FinOps
+          </Button>
+          <Button 
+            color="inherit" 
             sx={{ mr: 2 }}
             data-testid="button-nav-categories"
           >
